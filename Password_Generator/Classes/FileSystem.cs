@@ -36,13 +36,18 @@ namespace Password_Generator
 
 			if (!File.Exists (filePath))
 				return null;
-			
+
 			content = File.ReadAllText (filePath);
 
 			var info = JsonConvert.DeserializeObject<PasswordInfo> (content);
 			return info;
 		}
 
+		/// <summary>
+		/// Finds and retrieves a path for the file specified.
+		/// </summary>
+		/// <returns> The path of the file. </returns>
+		/// <param name="file"> The file to get a path for. </param>
 		static string GetFilePath (string file)
 		{
 			string relativePath = @"Resources";
